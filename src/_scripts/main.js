@@ -5,6 +5,7 @@
 
 var $ = require('jquery');
 
+var creator = false;
 
 $(function() {
 
@@ -88,6 +89,20 @@ $(function() {
         dead: false
       };
 
+      if(creator){
+        if(isNaN(xPos) || isNaN(yPos)){
+          particle.x = Math.floor(Math.random() * -100) + 0;
+          particle.y = Math.floor(Math.random() * -100) + 0;
+        }else{
+
+        }
+
+      }else{
+        particle.x = Math.floor(Math.random() * -100) + 0;
+        particle.y = Math.floor(Math.random() * -100) + 0;
+
+      }
+
       particles.push(particle);
     }
 
@@ -95,4 +110,22 @@ $(function() {
       init();
     }, 300);
 
+});
+
+$(".creator").click(function(){
+  if(creator){
+    creator = false;
+    $(".creator").fadeOut();
+    setTimeout(function() {
+      $("#c-text").text("I want to be the creator.");
+      $(".creator").fadeIn();
+    }, 3000);
+  }else{
+    creator = true;
+    $(".creator").fadeOut();
+    setTimeout(function() {
+      $("#c-text").text("Being a creator is boring. I want to observe the nature.");
+      $(".creator").fadeIn();
+    }, 3000);
+  }
 });
