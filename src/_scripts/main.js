@@ -139,3 +139,8 @@ $(".creator").click(function(){
     }, 3000);
   }
 });
+
+$(window).resize(function () {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
